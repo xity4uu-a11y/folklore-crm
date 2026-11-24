@@ -1,0 +1,22 @@
+{
+  "id": "b2b-saas-pipeline",
+  "name": "B2B SaaS Weighted Pipeline",
+  "version": "1.0.0",
+  "kind": "pipeline",
+  "description": "Configures stage close probabilities, weighted ARR forecasting, and target cycle-time guardrails for founder-led B2B SaaS sales.",
+  "author": "xity4uu-a11y",
+  "enabled": true,
+  "config": {
+    "currency": "USD",
+    "stage_probabilities": {
+      "lead": 0.15,
+      "qualified": 0.35,
+      "proposal": 0.60,
+      "negotiation": 0.80,
+      "won": 1.0,
+      "lost": 0.0
+    },
+    "target_cycle_days": 30,
+    "require_next_followup_on_open_deals": true
+  }
+}

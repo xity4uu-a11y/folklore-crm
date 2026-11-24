@@ -1,0 +1,36 @@
+# Rust build artifacts
+target/
+src-tauri/target/
+**/*.rs.bk
+Cargo.lock
+
+# Release binaries and distribution staging
+dist/
+
+# Node / Vite UI
+node_modules/
+ui/node_modules/
+ui/dist/
+ui/.vite/
+ui/coverage/
+
+# Environment & local secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Databases & local temp files
+*.db
+*.db-shm
+*.db-wal
+*.sqlite*
+.folklore-tmp/
+
+# OS & editor junk
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+.vscode/settings.local.json

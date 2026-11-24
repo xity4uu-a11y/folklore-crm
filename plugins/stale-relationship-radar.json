@@ -1,0 +1,15 @@
+{
+  "id": "stale-relationship-radar",
+  "name": "Stale Relationship Radar",
+  "version": "1.0.0",
+  "kind": "radar",
+  "description": "Surfaces open opportunities and VIP contacts with zero recorded touchpoints in the past 14 days so high-value threads never go cold.",
+  "author": "xity4uu-a11y",
+  "enabled": true,
+  "config": {
+    "stale_threshold_days": 14,
+    "due_soon_window_days": 7,
+    "ignore_stages": ["won", "lost"],
+    "priority_tags": ["enterprise", "founder-led", "vip"]
+  }
+}

@@ -1,0 +1,19 @@
+[package]
+name = "folklore-desktop"
+version = "1.0.0"
+edition = "2021"
+license = "MIT"
+description = "Folklore CRM desktop shell powered by Tauri v2 and pure-Rust folklore-core"
+
+[lib]
+name = "folklore_desktop_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+folklore-core = { path = "../crates/folklore-core" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tauri = { version = "2", features = [] }

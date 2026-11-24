@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/xity4uu-a11y/folklore-crm/plugins/schema.json",
+  "title": "Folklore CRM Plugin Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "version",
+    "kind",
+    "description",
+    "author",
+    "enabled",
+    "config"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{1,62}[a-z0-9]$",
+      "description": "Unique kebab-case plugin identifier."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80,
+      "description": "Human-readable plugin display name."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "description": "Semantic version (MAJOR.MINOR.PATCH)."
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "pipeline",
+        "radar",
+        "importer",
+        "snippets",
+        "exporter",
+        "automation"
+      ],
+      "description": "Plugin capability category."
+    },
+    "description": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 280,
+      "description": "Concise summary of what the plugin adds to a Folklore vault."
+    },
+    "author": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80,
+      "description": "GitHub handle or maintainer name."
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "Whether the plugin is enabled by default."
+    },
+    "config": {
+      "type": "object",
+      "description": "Plugin-specific declarative configuration."
+    }
+  }
+}

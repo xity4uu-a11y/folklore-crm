@@ -1,0 +1,257 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 580" width="1080" height="580" role="img" aria-label="15-second split-screen demo: editing contacts/elena-rostova.md in VS Code syncs Folklore CRM Kanban and Git history instantaneously">
+  <style>
+    .mono { font-family: "JetBrains Mono", "SF Mono", Consolas, monospace; }
+    .sans { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
+
+    /* Phase A (0s-5s): proposal; Phase B (5s-13.5s): won; reset smoothly at 15s */
+    .state-proposal {
+      animation: hideOnWon 15s infinite;
+    }
+    .state-won {
+      opacity: 0;
+      animation: showOnWon 15s infinite;
+    }
+    .sync-pulse {
+      opacity: 0.25;
+      animation: gitSyncPulse 15s infinite;
+    }
+    .commit-row-new {
+      opacity: 0;
+      animation: showCommit 15s infinite;
+    }
+    .cursor-blink {
+      animation: blinkCursor 1s step-end infinite;
+    }
+    .progress-bar {
+      animation: timelineProgress 15s linear infinite;
+    }
+
+    @keyframes hideOnWon {
+      0%, 30% { opacity: 1; }
+      33%, 92% { opacity: 0; }
+      95%, 100% { opacity: 1; }
+    }
+    @keyframes showOnWon {
+      0%, 30% { opacity: 0; }
+      34%, 92% { opacity: 1; }
+      95%, 100% { opacity: 0; }
+    }
+    @keyframes gitSyncPulse {
+      0%, 31% { opacity: 0.28; }
+      35%, 44% { opacity: 1; }
+      48%, 100% { opacity: 0.28; }
+    }
+    @keyframes showCommit {
+      0%, 40% { opacity: 0; }
+      44%, 92% { opacity: 1; }
+      95%, 100% { opacity: 0; }
+    }
+    @keyframes blinkCursor {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    @keyframes timelineProgress {
+      0% { width: 0px; }
+      100% { width: 1032px; }
+    }
+  </style>
+
+  <!-- Outer Canvas -->
+  <rect width="1080" height="580" rx="16" fill="#0D0F13"/>
+  <rect x="1" y="1" width="1078" height="578" rx="15" fill="none" stroke="#242933" stroke-width="1.5"/>
+
+  <!-- Top Telemetry Header -->
+  <g transform="translate(24, 18)">
+    <text x="0" y="18" class="sans" fill="#F2F4F8" font-size="14" font-weight="650">Folklore CRM — Live Plain-Text Git Sync</text>
+    <text x="0" y="36" class="mono" fill="#7D8594" font-size="11">Edit contacts/elena-rostova.md in VS Code -&gt; SHA-256 watcher syncs Desktop UI + Git log</text>
+
+    <g transform="translate(700, 4)">
+      <rect x="0" y="0" width="112" height="28" rx="6" fill="#15181F" stroke="#292E39"/>
+      <text x="14" y="18" class="mono" fill="#B8C0CE" font-size="11">SYNC &lt;150ms</text>
+
+      <rect x="122" y="0" width="96" height="28" rx="6" fill="#14261C" stroke="#244632"/>
+      <text x="136" y="18" class="mono" fill="#7AC894" font-size="11">$0/SEAT</text>
+
+      <rect x="228" y="0" width="104" height="28" rx="6" fill="#15181F" stroke="#292E39"/>
+      <text x="242" y="18" class="mono" fill="#B8C0CE" font-size="11">LOCAL GIT</text>
+    </g>
+  </g>
+
+  <line x1="24" y1="68" x2="1056" y2="68" stroke="#20252E" stroke-width="1"/>
+
+  <!-- LEFT PANE: VS Code Editor -->
+  <g transform="translate(24, 84)">
+    <rect width="474" height="444" rx="10" fill="#13161C" stroke="#262B36"/>
+    <line x1="0" y1="36" x2="474" y2="36" stroke="#222731"/>
+    <circle cx="18" cy="18" r="4" fill="#353B47"/>
+    <circle cx="32" cy="18" r="4" fill="#353B47"/>
+    <circle cx="46" cy="18" r="4" fill="#353B47"/>
+    <text x="64" y="22" class="mono" fill="#D5DBE5" font-size="11.5">VS Code — contacts/elena-rostova.md</text>
+    <text x="412" y="22" class="mono" fill="#7D8594" font-size="10.5">UTF-8</text>
+
+    <!-- Line numbers -->
+    <g transform="translate(14, 58)" class="mono" fill="#525A69" font-size="11.5">
+      <text x="0" y="0"> 1</text>
+      <text x="0" y="21"> 2</text>
+      <text x="0" y="42"> 3</text>
+      <text x="0" y="63"> 4</text>
+      <text x="0" y="84"> 5</text>
+      <text x="0" y="105"> 6</text>
+      <text x="0" y="126"> 7</text>
+      <text x="0" y="147"> 8</text>
+      <text x="0" y="168"> 9</text>
+      <text x="0" y="189">10</text>
+      <text x="0" y="210">11</text>
+      <text x="0" y="231">12</text>
+      <text x="0" y="252">13</text>
+      <text x="0" y="273">14</text>
+      <text x="0" y="294">15</text>
+    </g>
+
+    <!-- Highlighted edited line 7 -->
+    <rect x="42" y="169" width="420" height="22" rx="4" fill="#1C222D"/>
+
+    <!-- Editor Code -->
+    <g transform="translate(48, 58)" class="mono" font-size="11.5">
+      <text x="0" y="0" fill="#687080">---</text>
+      <text x="0" y="21" fill="#8E96A4">id: <tspan fill="#E8ECF2">elena-rostova</tspan></text>
+      <text x="0" y="42" fill="#8E96A4">name: <tspan fill="#E8ECF2">Elena Rostova</tspan></text>
+      <text x="0" y="63" fill="#8E96A4">email: <tspan fill="#E8ECF2">elena@northstar.dev</tspan></text>
+      <text x="0" y="84" fill="#8E96A4">company: <tspan fill="#E8ECF2">Northstar Systems</tspan></text>
+      <text x="0" y="105" fill="#8E96A4">role: <tspan fill="#E8ECF2">VP of Engineering</tspan></text>
+
+      <!-- Animated stage line -->
+      <g class="state-proposal">
+        <text x="0" y="126" fill="#8E96A4">stage: <tspan fill="#D9A44C">proposal</tspan></text>
+        <rect x="108" y="114" width="2" height="14" fill="#D9A44C" class="cursor-blink"/>
+      </g>
+      <g class="state-won">
+        <text x="0" y="126" fill="#8E96A4">stage: <tspan fill="#7AC894">won</tspan></text>
+        <rect x="74" y="114" width="2" height="14" fill="#7AC894" class="cursor-blink"/>
+      </g>
+
+      <text x="0" y="147" fill="#8E96A4">deal_value: <tspan fill="#E8ECF2">24000</tspan></text>
+      <text x="0" y="168" fill="#8E96A4">currency: <tspan fill="#E8ECF2">USD</tspan></text>
+      <text x="0" y="189" fill="#8E96A4">tags: <tspan fill="#C3CAD6">[enterprise, security]</tspan></text>
+      <text x="0" y="210" fill="#687080">---</text>
+      <text x="0" y="231" fill="#E8ECF2">## Timeline</text>
+      <text x="0" y="252" fill="#9AA2B1">- 2026-11-22 | call | SOC2 approved</text>
+      <text x="0" y="273" fill="#E8ECF2">## Tasks</text>
+      <text x="0" y="294" fill="#7AC894">- [x] Replace 45 HubSpot seats</text>
+    </g>
+
+    <!-- Bottom Terminal inside VS Code -->
+    <line x1="0" y1="366" x2="474" y2="366" stroke="#222731"/>
+    <rect x="1" y="367" width="472" height="76" rx="0" fill="#101217"/>
+    <text x="14" y="388" class="mono" fill="#6E7685" font-size="10.5">TERMINAL</text>
+    <text x="14" y="408" class="mono" fill="#C7CDD8" font-size="11">$ folklore commit -m "deal(elena): proposal -&gt; won"</text>
+    <text x="14" y="427" class="mono commit-row-new" fill="#7AC894" font-size="11">Committed 7e2c9b4 — deal(elena): proposal -&gt; won</text>
+  </g>
+
+  <!-- CENTER SYNC BRIDGE -->
+  <g transform="translate(506, 250)">
+    <rect x="0" y="0" width="68" height="72" rx="10" fill="#141820" stroke="#2B313E"/>
+    <text x="34" y="25" text-anchor="middle" class="mono" fill="#8E96A4" font-size="9.5">SHA-256</text>
+    <text x="34" y="42" text-anchor="middle" class="mono sync-pulse" fill="#7AC894" font-size="11" font-weight="700">SYNC -&gt;</text>
+    <text x="34" y="59" text-anchor="middle" class="mono" fill="#6D7584" font-size="9">GIT</text>
+  </g>
+
+  <!-- RIGHT PANE: Folklore CRM Desktop UI -->
+  <g transform="translate(582, 84)">
+    <rect width="474" height="444" rx="10" fill="#13161C" stroke="#262B36"/>
+    <line x1="0" y1="36" x2="474" y2="36" stroke="#222731"/>
+    <text x="16" y="22" class="sans" fill="#F2F4F8" font-size="12.5" font-weight="650">Folklore CRM Desktop (Tauri v2)</text>
+    <rect x="344" y="9" width="114" height="19" rx="9" fill="#14261C" stroke="#244632"/>
+    <text x="357" y="22" class="mono" fill="#7AC894" font-size="10">vault-synced</text>
+
+    <!-- Pipeline Summary Metrics -->
+    <g transform="translate(16, 50)">
+      <rect x="0" y="0" width="214" height="58" rx="8" fill="#181C24" stroke="#252A35"/>
+      <text x="12" y="19" class="sans" fill="#7D8594" font-size="10.5">CLOSED WON</text>
+      <text x="12" y="44" class="mono state-proposal" fill="#F2F4F8" font-size="18" font-weight="700">$9,600</text>
+      <text x="12" y="44" class="mono state-won" fill="#7AC894" font-size="18" font-weight="700">$33,600</text>
+
+      <rect x="228" y="0" width="214" height="58" rx="8" fill="#181C24" stroke="#252A35"/>
+      <text x="240" y="19" class="sans" fill="#7D8594" font-size="10.5">OPEN PIPELINE</text>
+      <text x="240" y="44" class="mono state-proposal" fill="#F2F4F8" font-size="18" font-weight="700">$90,500</text>
+      <text x="240" y="44" class="mono state-won" fill="#F2F4F8" font-size="18" font-weight="700">$66,500</text>
+    </g>
+
+    <!-- Two Kanban Columns: Proposal vs Won -->
+    <g transform="translate(16, 122)">
+      <!-- Proposal Column -->
+      <rect x="0" y="0" width="214" height="196" rx="8" fill="#101217" stroke="#232833"/>
+      <text x="12" y="22" class="sans" fill="#D9A44C" font-size="11.5" font-weight="650">PROPOSAL (60%)</text>
+      <line x1="0" y1="32" x2="214" y2="32" stroke="#20252F"/>
+
+      <!-- Elena Card in Proposal (Phase A) -->
+      <g transform="translate(10, 42)" class="state-proposal">
+        <rect width="194" height="68" rx="7" fill="#181C24" stroke="#47391C"/>
+        <text x="10" y="20" class="sans" fill="#F2F4F8" font-size="12" font-weight="600">Elena Rostova</text>
+        <text x="132" y="20" class="mono" fill="#F2F4F8" font-size="11.5">$24,000</text>
+        <text x="10" y="38" class="sans" fill="#8C93A1" font-size="11">Northstar Systems</text>
+        <text x="10" y="56" class="mono" fill="#D9A44C" font-size="10">contacts/elena-rostova.md</text>
+      </g>
+
+      <!-- Static David Card in Proposal -->
+      <g transform="translate(10, 118)">
+        <rect width="194" height="66" rx="7" fill="#181C24" stroke="#272C37"/>
+        <text x="10" y="20" class="sans" fill="#F2F4F8" font-size="12" font-weight="600">David Okafor</text>
+        <text x="132" y="20" class="mono" fill="#F2F4F8" font-size="11.5">$21,000</text>
+        <text x="10" y="38" class="sans" fill="#8C93A1" font-size="11">LatticeWorks</text>
+        <text x="10" y="54" class="mono" fill="#7D8594" font-size="10">contacts/david-okafor.md</text>
+      </g>
+
+      <!-- Won Column -->
+      <rect x="228" y="0" width="214" height="196" rx="8" fill="#101217" stroke="#232833"/>
+      <text x="240" y="22" class="sans" fill="#7AC894" font-size="11.5" font-weight="650">WON (100%)</text>
+      <line x1="228" y1="32" x2="442" y2="32" stroke="#20252F"/>
+
+      <!-- Elena Card Appears in Won (Phase B) -->
+      <g transform="translate(238, 42)" class="state-won">
+        <rect width="194" height="68" rx="7" fill="#14261C" stroke="#2A543B"/>
+        <text x="10" y="20" class="sans" fill="#F2F4F8" font-size="12" font-weight="600">Elena Rostova</text>
+        <text x="132" y="20" class="mono" fill="#7AC894" font-size="11.5">$24,000</text>
+        <text x="10" y="38" class="sans" fill="#A6C7B2" font-size="11">Northstar Systems</text>
+        <text x="10" y="56" class="mono" fill="#7AC894" font-size="10">stage: won  [synced]</text>
+      </g>
+
+      <!-- Static Tomasz Card in Won -->
+      <g transform="translate(238, 118)">
+        <rect width="194" height="66" rx="7" fill="#181C24" stroke="#272C37"/>
+        <text x="10" y="20" class="sans" fill="#F2F4F8" font-size="12" font-weight="600">Tomasz Kowalski</text>
+        <text x="140" y="20" class="mono" fill="#F2F4F8" font-size="11.5">$9,600</text>
+        <text x="10" y="38" class="sans" fill="#8C93A1" font-size="11">Veritas Security</text>
+        <text x="10" y="54" class="mono" fill="#7D8594" font-size="10">contacts/tomasz-kowalski.md</text>
+      </g>
+    </g>
+
+    <!-- Git History Footer Panel inside Desktop UI -->
+    <g transform="translate(16, 332)">
+      <rect width="442" height="96" rx="8" fill="#101217" stroke="#232833"/>
+      <text x="12" y="20" class="sans" fill="#9AA2B1" font-size="11" font-weight="600">GIT TIME-TRAVEL LOG — contacts/elena-rostova.md</text>
+      <line x1="0" y1="29" x2="442" y2="29" stroke="#20252F"/>
+
+      <g class="commit-row-new" transform="translate(12, 49)">
+        <text x="0" y="0" class="mono" fill="#7AC894" font-size="11">7e2c9b4</text>
+        <text x="64" y="0" class="mono" fill="#E8ECF2" font-size="11">deal(elena): proposal -&gt; won ($24,000)</text>
+      </g>
+      <g transform="translate(12, 70)">
+        <text x="0" y="0" class="mono" fill="#7D8594" font-size="11">9f4c2a1</text>
+        <text x="64" y="0" class="mono" fill="#9AA2B1" font-size="11">deal(elena): advance to proposal after SOC2 call</text>
+      </g>
+      <g transform="translate(12, 87)">
+        <text x="0" y="0" class="mono" fill="#636B7A" font-size="10.5">3a81e70  chore(vault): initialize folklore crm vault</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- 15-Second Loop Progress Bar -->
+  <g transform="translate(24, 546)">
+    <rect x="0" y="0" width="1032" height="4" rx="2" fill="#1D212A"/>
+    <rect x="0" y="0" height="4" rx="2" fill="#6F7888" class="progress-bar"/>
+    <text x="0" y="20" class="mono" fill="#6C7484" font-size="10.5">00:00 Open contacts/elena-rostova.md</text>
+    <text x="360" y="20" class="mono" fill="#6C7484" font-size="10.5">00:05 Edit stage: proposal -&gt; won</text>
+    <text x="720" y="20" class="mono" fill="#6C7484" font-size="10.5">00:07 Git commit + instant Kanban sync</text>
+  </g>
+</svg>

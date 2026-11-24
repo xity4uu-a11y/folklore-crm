@@ -1,0 +1,15 @@
+{
+  "id": "vcard-csv-portable-export",
+  "name": "Portable vCard & Formula-Safe CSV Export",
+  "version": "1.0.0",
+  "kind": "exporter",
+  "description": "Guarantees 1-click escape from Folklore CRM via RFC 6350 vCard 4.0 and OWASP formula-neutralized CSV archives.",
+  "author": "xity4uu-a11y",
+  "enabled": true,
+  "config": {
+    "formats": ["csv", "vcf"],
+    "neutralize_csv_formulas": true,
+    "vcard_version": "4.0",
+    "include_closed_deals": true
+  }
+}

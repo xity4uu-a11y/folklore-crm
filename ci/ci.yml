@@ -1,0 +1,87 @@
+# CI & Multi-OS Release Template for Folklore CRM
+# Copy to .github/workflows/ci.yml if you want to enable GitHub Actions on your fork.
+
+name: Folklore CRM CI
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+    branches: [main]
+
+jobs:
+  rust-core:
+    name: Rust Core Tests & Clippy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy
+      - name: Run pure-Rust unit and Git integration tests
+        run: cargo test -p folklore-core -- --nocapture
+      - name: Run Clippy with warnings denied
+        run: cargo clippy -p folklore-core --all-targets -- -D warnings
+      - name: Build release CLI binary
+        run: cargo build --release -p folklore-core
+
+  ui-and-plugins:
+    name: React 19 UI Tests, Typecheck, Build & Plugins
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate community plugin manifests
+        run: node scripts/validate-plugins.mjs
+      - name: Install UI dependencies
+        working-directory: ui
+        run: npm ci
+      - name: TypeScript typecheck
+        working-directory: ui
+        run: npm run typecheck
+      - name: Run Vitest unit suite
+        working-directory: ui
+        run: npm test
+      - name: Build production UI bundle
+        working-directory: ui
+        run: npm run build
+
+  tauri-desktop-release:
+    name: Tauri v2 Desktop Release (${{ matrix.platform }})
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: [rust-core, ui-and-plugins]
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: ubuntu-22.04
+          - platform: macos-latest
+          - platform: windows-latest
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Install Linux WebKit dependencies
+        if: matrix.platform == 'ubuntu-22.04'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
+      - name: Install UI dependencies
+        working-directory: ui
+        run: npm ci
+      - name: Build Tauri v2 desktop bundle
+        uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          projectPath: .
+          tagName: ${{ github.ref_name }}
+          releaseName: "Folklore CRM ${{ github.ref_name }}"
+          releaseDraft: true
+          prerelease: false

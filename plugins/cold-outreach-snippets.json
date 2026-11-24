@@ -1,0 +1,23 @@
+{
+  "id": "cold-outreach-snippets",
+  "name": "Cold Outreach Plain-Text Snippets",
+  "version": "1.0.0",
+  "kind": "snippets",
+  "description": "Provides reusable Markdown follow-up templates parameterized with frontmatter fields for zero-bloat founder outreach.",
+  "author": "xity4uu-a11y",
+  "enabled": true,
+  "config": {
+    "templates": [
+      {
+        "slug": "post-demo-recap",
+        "subject": "Next steps for {{company}}",
+        "body": "Hi {{name}}, thanks for walking through your workflow at {{company}}. Attached is the plain-text rollout checklist we covered."
+      },
+      {
+        "slug": "stale-thread-bump",
+        "subject": "Quick check-in on {{company}}",
+        "body": "Hi {{name}}, circling back before {{next_followup}} to see if priorities shifted on your side."
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+[workspace]
+resolver = "2"
+members = ["crates/folklore-core"]
+exclude = ["src-tauri"]
+
+[workspace.package]
+version = "1.0.0"
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/xity4uu-a11y/folklore-crm"
+authors = ["xity4uu-a11y <255560410+xity4uu-a11y@users.noreply.github.com>"]

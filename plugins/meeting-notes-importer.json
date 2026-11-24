@@ -1,0 +1,15 @@
+{
+  "id": "meeting-notes-importer",
+  "name": "Markdown Meeting Notes Importer",
+  "version": "1.0.0",
+  "kind": "importer",
+  "description": "Maps local Obsidian or VS Code meeting notes into timestamped ## Timeline entries and unchecked ## Tasks action items.",
+  "author": "xity4uu-a11y",
+  "enabled": true,
+  "config": {
+    "source_glob": "notes/meetings/*.md",
+    "timeline_kind": "meeting",
+    "extract_action_items": true,
+    "commit_template": "log({contact_id}): import meeting notes from {date}"
+  }
+}

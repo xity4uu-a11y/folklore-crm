@@ -1,0 +1,23 @@
+[package]
+name = "folklore-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+description = "Pure-Rust plain-text Markdown + local Git CRM engine and CLI"
+
+[lib]
+name = "folklore_core"
+path = "src/lib.rs"
+
+[[bin]]
+name = "folklore"
+path = "src/bin/folklore.rs"
+
+[dependencies]
+chrono = { version = "0.4", default-features = false, features = ["now", "std", "serde"] }
+clap = { version = "4", default-features = false, features = ["std", "derive", "help", "usage", "error-context", "env"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
