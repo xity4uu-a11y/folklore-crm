@@ -1,46 +1,26 @@
 <p align="center">
-  <img src="assets/banner.svg" alt="Folklore CRM — Plain-Text Git-Backed Micro-CRM" width="100%" />
+  <img src="assets/banner.svg" alt="Folklore CRM plain-text Git CRM" width="100%" />
 </p>
+
+# Folklore CRM
+
+If you already keep your notes in Markdown and your code in Git, putting client relationships inside a slow cloud CRM feels backwards.
+
+Folklore CRM treats a plain directory of `contacts/*.md` files as your source of truth. Edit a deal stage or add call notes in the **Rust + Tauri v2** Kanban app, update the file directly in VS Code or Obsidian, or query your pipeline from the standalone `folklore` CLI. Every change diffs cleanly and can be rolled back with standard `git log` / `git show`.
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Stack-Rust%20%2B%20Tauri%20v2-111317?style=flat-square" alt="Rust + Tauri v2" />
-  <img src="https://img.shields.io/badge/Storage-Git--Backed-1f6b3b?style=flat-square" alt="Git-Backed" />
-  <img src="https://img.shields.io/badge/Format-Plain--Text%20Markdown-264d80?style=flat-square" alt="Plain-Text Markdown" />
-  <img src="https://img.shields.io/badge/Cloud%20Lock--In-Zero-111317?style=flat-square" alt="Cloud Lock-In: Zero" />
-  <img src="https://img.shields.io/badge/Price-%240%2Fseat-1f6b3b?style=flat-square" alt="Price: $0/seat" />
-  <img src="https://img.shields.io/badge/License-MIT-4c525e?style=flat-square" alt="MIT License" />
+  <img src="assets/demo-git-sync.svg" alt="Folklore CRM syncing a VS Code Markdown edit into the Kanban board" width="100%" />
 </p>
 
-# Stop paying $50/seat for HubSpot. Manage your contacts in plain text with the Git-backed CRM.
+## Why plain text + Git?
 
-Folklore CRM is a local-first, zero-cloud micro-CRM built in **Rust** (`folklore-core` + single CLI binary) and **Tauri v2 + React 19**. Every contact is a human-readable YAML frontmatter + Markdown file in `contacts/*.md`, versioned natively with local **Git**. Edit deals in the desktop Kanban board, log calls from your terminal, or update frontmatter directly in VS Code or Obsidian — Folklore syncs instantaneously via SHA-256 vault fingerprinting and preserves complete Git time-travel history.
+Small teams, consultants, and indie founders rarely need 400 enterprise CRM workflows—they need to remember who they talked to, what the deal is worth, and when to follow up next. Keeping those records in readable YAML frontmatter + Markdown means:
 
----
+- **Zero lock-in.** Even if you stop using Folklore tomorrow, your entire customer history is still readable in any text editor and exportable to CSV or vCard.
+- **Real version history.** Accidentally overwrite a note? Inspect the commit diff and restore the previous version in one click.
+- **No per-seat tax.** Sync with a private Git repo you already control instead of paying `$50–$150/seat` every month.
 
-## 15-Second Live Sync Demo
-
-<p align="center">
-  <img src="assets/demo-git-sync.svg" alt="Folklore CRM 15-second split-screen demo showing VS Code edit synced to Kanban pipeline and Git log" width="100%" />
-</p>
-
-> **Drop-in GIF slot:** Recording a custom walkthrough for a release or blog post? Drop your screen capture at `assets/demo.gif` and swap `assets/demo-git-sync.svg` above to `assets/demo.gif`.
-
----
-
-## Why This Exists
-
-Most small teams, indie founders, agencies, and technical revenue groups do not need a bloated 400-feature enterprise SaaS suite. Yet the default industry playbook still forces you into:
-
-- **$50 to $150 per seat every month** in recurring SaaS rent just to store contact names, notes, and a 6-stage pipeline.
-- **Proprietary database lock-in**, rate-limited APIs, and paid "export tiers" that hold your own customer history hostage.
-- **Zero real audit history**: when a teammate overwrites a deal note or stage, you cannot run `git log` or restore a single file to last Tuesday.
-- **Forced cloud migrations and UI churn** that slow down every interaction behind spinners and upsell banners.
-
-Folklore CRM flips the model completely. Your CRM is a plain folder of Markdown files inside a standard local Git repository. It works 100% offline, opens in any text editor ever written, diffs cleanly in Pull Requests, and costs **$0/seat forever**.
-
----
-
-## CRM SaaS Killed
+## Comparison
 
 | Capability | Folklore CRM | HubSpot Sales Hub | Attio | Pipedrive | Clay |
 | :--- | :--- | :--- | :--- | :--- | :--- |
